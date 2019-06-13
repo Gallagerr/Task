@@ -5,21 +5,59 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Task"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Task Manager " Height="450" Width="800">
     <Grid>
-        <DatePicker Name="datepicer" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <ComboBox Name="combo" HorizontalAlignment="Left" Margin="382,1,0,0" VerticalAlignment="Top" Width="161" >
-            <ComboBoxItem Name="Save" Content="Скачать файл" MouseDoubleClick="Save_MouseDoubleClick" />
-            <ComboBoxItem Name="MovieCatalog" Content="Переместить каталог" MouseDoubleClick="MovieCatalog_MouseDoubleClick" />
-            <ComboBoxItem Name="SendMail" Content="Отправить E-mail" MouseDoubleClick="SendMail_MouseDoubleClick" />
-        </ComboBox>
-        <Label Name="lblTime" Content="" HorizontalAlignment="Left" Margin="198,0,0,0" VerticalAlignment="Top" Width="161" FontSize="18"/>
-        <ComboBox HorizontalAlignment="Left" Margin="585,1,0,0" VerticalAlignment="Top" Width="161">
-            <ComboBoxItem Content="День"/>
-            <ComboBoxItem Content="Неделю"/>
-            <ComboBoxItem Content="Месяц"/>
-            <ComboBoxItem Content="Год"/>
-        </ComboBox>
+
+        <RadioButton Name="Save" Content="Скачать файл" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="Save_Click" FontSize="16"/>
+        <RadioButton Name="MovieCatalog" Content="Переместить каталог" HorizontalAlignment="Left" Margin="297,10,0,0" VerticalAlignment="Top" Click="MovieCatalog_Click" FontSize="16"/>
+        <RadioButton Name="SendMail" Content="Отправить E-mail" HorizontalAlignment="Left" Margin="631,10,0,0" VerticalAlignment="Top" Click="SendMail_Click" FontSize="16" RenderTransformOrigin="0.841,0.55" />
+
+        <Grid Name="SaveGrid" Visibility="Hidden" Margin="0">
+            <TextBox Name="FromDownload" HorizontalAlignment="Left" Height="23" Margin="68,141,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="283" FontSize="16"/>
+            <TextBox Name="ToDownload" HorizontalAlignment="Left" Height="23" Margin="68,172,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="283" FontSize="16"/>
+            <Label Name="TextFromDownload" Content="Откуда" HorizontalAlignment="Left" Margin="7,137,0,0" VerticalAlignment="Top" FontSize="16"/>
+            <Label Name="TextToDownload" Content="Куда" HorizontalAlignment="Left" Margin="7,168,0,0" VerticalAlignment="Top" FontSize="16"/>
+            <Label Name="lblTimeDownload" Content="" HorizontalAlignment="Left" Margin="619,141,0,0" VerticalAlignment="Top" Width="161" FontSize="18"/>
+            <DatePicker Name="DatepicerDownload" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="418,142,0,0"/>
+            <RadioButton Name="DayDownload" Content="День" HorizontalAlignment="Left" Margin="12,266,0,0" VerticalAlignment="Top" FontSize="16"/>
+            <RadioButton Name="WeekDownload" Content="Неделю" HorizontalAlignment="Left" Margin="12,291,0,0" VerticalAlignment="Top" FontSize="16"/>
+            <RadioButton Name="MonthDownload" Content="Месяц" HorizontalAlignment="Left" Margin="12,316,0,0" VerticalAlignment="Top" FontSize="16"/>
+            <RadioButton Name="YearDownload" Content="Год" HorizontalAlignment="Left" Margin="12,341,0,0" VerticalAlignment="Top" FontSize="16"/>
+        </Grid>
+
+        <Grid Name="CatalogGrid" Visibility="Hidden">
+            <TextBox Name="FromCatalog" HorizontalAlignment="Left" Height="23" Margin="68,141,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="283" FontSize="16"/>
+            <TextBox Name="ToCatalog" HorizontalAlignment="Left" Height="23" Margin="68,172,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="283" FontSize="16"/>
+            <Label Name="TextFromCatalog" Content="Откуда" HorizontalAlignment="Left" Margin="7,137,0,0" VerticalAlignment="Top" FontSize="16"/>
+            <Label Name="TextToCatalog" Content="Куда" HorizontalAlignment="Left" Margin="7,168,0,0" VerticalAlignment="Top" FontSize="16"/>
+            <Label Name="lblTimeCatalog" Content="" HorizontalAlignment="Left" Margin="619,141,0,0" VerticalAlignment="Top" Width="161" FontSize="18"/>
+            <DatePicker Name="DatepicerCatalog" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="418,142,0,0"/>
+            <RadioButton Name="DayCatalog" Content="День" HorizontalAlignment="Left" Margin="12,266,0,0" VerticalAlignment="Top" FontSize="16"/>
+            <RadioButton Name="WeekCatalog" Content="Неделю" HorizontalAlignment="Left" Margin="12,291,0,0" VerticalAlignment="Top" FontSize="16"/>
+            <RadioButton Name="MonthCatalog" Content="Месяц" HorizontalAlignment="Left" Margin="12,316,0,0" VerticalAlignment="Top" FontSize="16"/>
+            <RadioButton Name="YearCatalog" Content="Год" HorizontalAlignment="Left" Margin="12,341,0,0" VerticalAlignment="Top" FontSize="16"/>
+        </Grid>
+
+        <Grid Name="EmailGrid" Visibility="Hidden">
+            <TextBox Name="FromEmail" HorizontalAlignment="Left" Height="23" Margin="68,141,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="283" FontSize="16"/>
+            <TextBox Name="ToEmail" HorizontalAlignment="Left" Height="23" Margin="68,172,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="283" FontSize="16"/>
+            <Label Name="TextFromEmail" Content="Откуда" HorizontalAlignment="Left" Margin="7,137,0,0" VerticalAlignment="Top" FontSize="16"/>
+            <Label Name="TextToEmail" Content="Куда" HorizontalAlignment="Left" Margin="7,168,0,0" VerticalAlignment="Top" FontSize="16"/>
+            <Label Name="lblTimeEmail" Content="" HorizontalAlignment="Left" Margin="619,141,0,0" VerticalAlignment="Top" Width="161" FontSize="18"/>
+            <DatePicker Name="DatepicerEmail" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="418,142,0,0"/>
+            <RadioButton Name="DayEmail" Content="День" HorizontalAlignment="Left" Margin="12,266,0,0" VerticalAlignment="Top" FontSize="16"/>
+            <RadioButton Name="WeekEmail" Content="Неделю" HorizontalAlignment="Left" Margin="12,291,0,0" VerticalAlignment="Top" FontSize="16"/>
+            <RadioButton Name="MonthEmail" Content="Месяц" HorizontalAlignment="Left" Margin="12,316,0,0" VerticalAlignment="Top" FontSize="16"/>
+            <RadioButton Name="YearEmail" Content="Год" HorizontalAlignment="Left" Margin="12,341,0,0" VerticalAlignment="Top" FontSize="16"/>
+            <RichTextBox Name="MessageEmail" HorizontalAlignment="Left" Height="194" Margin="106,215,0,0" VerticalAlignment="Top" Width="245">
+                <FlowDocument>
+                    <Paragraph>
+                        <Run Text=""/>
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+            <Label Name="TextMessageEmail" Content="Сообщение" HorizontalAlignment="Left" Margin="8,207,0,0" VerticalAlignment="Top" FontSize="16"/>
+        </Grid>
 
     </Grid>
 </Window>
