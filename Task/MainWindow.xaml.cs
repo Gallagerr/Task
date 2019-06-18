@@ -57,33 +57,5 @@ namespace Task
     {
       EmailGrid.Visibility = Visibility.Visible;
     }
-
-    public static void Copy(string sourceDirectory, string targetDirectory)
-    {
-      DirectoryInfo diSource = new DirectoryInfo(sourceDirectory);
-      DirectoryInfo diTarget = new DirectoryInfo(targetDirectory);
-
-      CopyAll(diSource, diTarget);
-    }
-    public static void CopyAll(DirectoryInfo source, DirectoryInfo target)
-    {
-      // Если директория target.FullName не существует, создать ее
-      if (!Directory.Exists(target.FullName))
-      {
-        Directory.CreateDirectory(target.FullName);
-      }
-      // Копируем файлы из sourceDirectory в targetDirectory
-      foreach (FileInfo fi in source.GetFiles())
-      {
-        fi.CopyTo(System.IO.Path.Combine(target.ToString(), fi.Name), true);
-      }
-      // Копируем поддиректории
-      foreach (DirectoryInfo diSourceSubDir in source.GetDirectories())
-      {
-        DirectoryInfo nextTargetSubDir = target.CreateSubdirectory(diSourceSubDir.Name);
-        CopyAll(diSourceSubDir, nextTargetSubDir);
-      }
-    }
-
   }
 }
